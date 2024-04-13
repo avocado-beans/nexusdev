@@ -15,10 +15,14 @@ def index():
        phone_number = request.form.get("phone_number") 
        message = request.form.get("message")
        msg = "Full Name "+full_name+"\n"+"Email "+email+"\n"+"Phone Number "+phone_number+"\n"+"Message "+message
-       
-       company_email = "kace.yokohama@gmail.com"
-       send_email(msg)
-       print(company_email, email, phone_number, message)
+
+       # this is the email of the recipient of the message form
+       # currently my email but you can change it to yours to get the from message
+       # check your spam, that's where i found the messages at first
+       # tell bruk he goofy lol
+       recipient = "orthodoxrabbibillclinton42@gmail.com"
+       send_email(recipient, msg)
+       print("kace.yokohama@gmail.com", email, phone_number, message)
     return render_template("index.html")
 
 @app.route('/about', methods =["GET", "POST"])
